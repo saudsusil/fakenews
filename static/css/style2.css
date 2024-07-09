@@ -1,0 +1,69 @@
+.article-div {
+  margin-top: 10px;
+}
+
+.predict-btn {
+  /* predict button css*/
+  width: 5rem;
+  height: 3.8rem;
+  top: 304.7px;
+  position: absolute;
+  z-index: 2;
+  background: linear-gradient(to right, white, rgba(0, 0, 0, 0.2));
+  border-radius: 0 50px 50px 0;
+  border: none;
+  cursor: pointer;
+  right: 19rem;
+  font-size: 20px;
+  font-family: Rockwell;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  width: 500px;
+  height: 100px;
+  max-height: 500px;
+}
+
+.searchbar {
+  height: 1rem;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.route-btn {
+  width: fit-content;
+  color: #000;
+  text-decoration: none;
+  padding-right: 12px;
+  padding-left: 12px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(222, 230, 238);
+  border: none;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  transition: background-color 0.2s ease-in;
+}
+.footer {
+  width: 100%;
+  height: 180px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  backdrop-filter: blur(10px);
+  background-image: none;
+  display: flex;
+  flex-direction: row;
+  font-family: Rockwell;
+}
