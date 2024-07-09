@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous" />
+    <style>
+        body {
+            background-image: url("{% static 'images/Background_image.jpg' %}");
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar-right {
+            float: right;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        /* Style for the blurred area */
+        .blurred-area {
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust opacity as needed */
+    backdrop-filter: blur(10px); /* Add blur effect */
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute; /* Position absolutely */
+    top: 45%; /* Place it at 50% from the top */
+    left: 50%; /* Place it at 50% from the left */
+    transform: translate(-50%, -50%); /* Center the element */
+    width: 650px; /* Adjust the width as needed */
+    font-size: 30px;
+}
+
+.blurred-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("{% static 'images/Background_image.jpg' %}");
+    backdrop-filter: blur(10px); /* Add blur effect to the background */
+    border-radius: 10px;
+    z-index: -1; /* Ensure it's behind the content */
+}
+    </style>
+</head>
+<body>
+    <div id="loadingGif" style="display: none">
+        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+    </div>
+    <div id="loader" class="center"></div>
+    <div class="overlay-container">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="title">About Us</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="container">
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <span>//</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <span>//</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+                <div id="container">
+                    <span>//</span>
+                    <span class="image">
+                        <a href="#" class="fa fa-facebook fa-1x"></a>
+                        <a href="#" class="fa fa-linkedin fa-1x"></a>
+                        <a href="#" class="fa fa-github fa-1x"></a>
+                        <a href="#" class="fa fa-instagram fa-1x"></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <div class="navbar-right">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        </div>
+    </div>
+
+    <span class="text"><h1>Fake News Detector</h1></span>
+    
+    <!-- Project information -->
+    <div class="blurred-area">
+
+        <p>
+            Our project, the Fake News Detector, is an innovative system designed to combat the spread of misinformation and fake news across various online platforms. 
+            In today's digital age, the proliferation of fake news has become a significant concern, leading to misinformation, social unrest, and erosion of trust in media sources.
+        </p>
+      
+        <!-- Add more information about the project here -->
+    </div>
+
+    <div class="search-box">
+        <span class="options">
+        </span>
+        <div class="article-div">
+            <form action="" method="POST" class="search-form">
+            
+            </form>
+        </div>
+    </div>
+    <div class="footer" style="position: fixed; bottom: 0;">
+        <div id="box-1">
+            <button data-modal-target="#modal">About us</button>
+            <ul>
+                <li>@ Anjan Shrestha</li>
+                <li>@ Nitesh Shrestha</li>
+                <li>@ Rabin Ghimire</li>
+            </ul>
+            <br />
+            <span id="copyright_text">
+                <i id="copyright" class="fas fa-copyright fa-lg"></i>
+                <h4>National College of Computer Studies</h4>
+            </span>
+        </div>
+        <div id="box-2">
+            <img class="footer-image" src="{% static 'images/footer_image.jpg' %}" alt="footer_image" />
+            <h4>News</h4>
+            <h5>
+                With growing news in online portal, connect with us for detecting the correct news
+            </h5>
+            <span class="image">
+                <a href="#" class="fa fa-facebook fa-lg"></a>
+                <a href="#" class="fa fa-instagram fa-lg"></a>
+            </span>
+        </div>
+    </div>
+
+    <script src="{% static 'js/main.js'%}"></script>
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector("body").style.visibility = "hidden";
+                document.querySelector("#loader").style.visibility = "visible";
+            } else {
+                document.querySelector("#loader").style.display = "none";
+                document.querySelector("body").style.visibility = "visible";
+            }
+        };
+    </script>
+</body>
+</html>

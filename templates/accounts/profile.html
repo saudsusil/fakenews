@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Analyzer</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="style.css"/////home/kavir/Desktop/Fake/FakeNewsDetection/static/css//// /> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}" /> -->
+    <link rel="stylesheet" href="style3.css" />
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .header{
+       min-height: 100vh;
+       width: 100%;
+       background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("{% static 'images/bg.jpg' %}"); 
+       background-position: center;
+       background-size: cover;
+       position: relative;
+         }
+     </style>
+    
+  </head>
+  <body>
+    <section class="header"  >     
+  
+      <nav>
+        <a href="{% url 'index' %}"><img src="{% static 'images/na.png' %}"></a>
+        <div class="nav-links">
+            
+            
+            <ul>
+                <!-- <li><a href="./index/">HOME</a></li>  -->
+                <li><a href="{% url 'forarticle' %}">ARTICLE BASED</a></li>
+                <li><a href="{% url 'forurl' %}">URL BASED</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#feature">Features</a></li>
+                <li><a href="{% url 'index' %}">LogOut</a></li>
+
+              
+            </ul>
+        </div>
+        
+      </nav>
+      <br>
+      <div class="text-box">
+        <h1 > News Analyzer</h1>
+        
+        <!-- <p>text text text text text</p> -->
+      </div>
+    </section>
+    <div id="loadingGif" style="display: none">
+      <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+    </div>
+    <div id="loader" class="center"></div>
+    
+  
+
+    <br>
+ <section id="about" class="main">
+        <div class="row">
+            <div class="main-col">
+                <h1 style="font-size: 30px; color: grey;">WELCOME TO </h1>
+                <h1 style="font-size: 60px; color: #9e2020;">Fake Text Detection</h1>
+                <p >"Introducing News Analyzer, your go-to source for delving into the intricacies of today's news. Utilizing cutting-edge natural language processing, our platform dissects news articles to uncover essential insights, trends. Navigate the news landscape confidently as News Analyzer equips you with the tools to make informed decisions, unraveling the complexities within headlines. Immerse yourself in news exploration, gaining a holistic perspective on the stories shaping our world. 
+                    <br><br>
+                    
+            </div> 
+            <div class="main-col">
+                <img src="{% static 'images/old-newspaper-350376_1280.jpg' %}" >
+            </div> 
+        </div>
+    
+    
+    </section>
+
+    <section id="feature" class="feature">
+    <h1>FEATURE WE OFFER</h1>
+   
+
+    <div class="row">
+        <div class="feature-col">
+            <h3>ARTICAL BASED</h3>
+            <p>Fake news detection using article-based data involves the application of machine learning and natural
+               language processing techniques to distinguish between genuine and false information within news articles. By collecting and preprocessing a diverse dataset, the text is cleaned, tokenized, and converted into numerical representations using methods like TF-IDF or word embeddings. Machine learning models, such as Support Vector Machines or deep learning models like LSTMs, are then trained on this data to learn patterns indicative of fake news. The models are evaluated on metrics like accuracy and precision, and after fine-tuning, deployed to automatically classify articles. Continuous monitoring and updates are crucial to adapt to evolving misinformation trends, making these systems effective tools in combating the spread of fake news.</p>
+
+        </div>
+        
+        <div class="feature-col">
+            <h3>URL BASED</h3>
+            <p>Fake news detection using URL-based data involves analyzing information from web pages to identify misleading or fabricated content. This process typically begins with web scraping to extract text data from the provided URL. The extracted text undergoes preprocessing steps to remove noise and irrelevant information. Feature engineering methods, such as TF-IDF or embeddings, are employed to convert the text into a suitable format for machine learning models. Support Vector Machines, decision trees, or deep learning models like LSTMs may be trained on labeled datasets containing examples of both genuine and fake news. The trained models can then classify unseen URLs as potentially fake or not based on learned patterns. Regular updates and continuous monitoring are essential to ensure the effectiveness of the detection system against
+               evolving tactics used to spread misinformation through URLs.</p>
+        </div>
+    </div> 
+</section>
+   
+    <!-- <div class="search-box">
+      <span class="options">
+         <button class="article-btn" onclick="toggleContent(1)">
+          For Article
+        </button>
+        <button class="article-btn" onclick="{toggleContent(0)}">
+          For Url
+        </button> 
+         <a href="./forArticle" style="width:fit-content;color:black;text-decoration:none;padding-right:12px;padding-left:12px;padding-bottom:7px; padding-top:7px;cursor:pointer;outline:none;background-color:white;border:none;font-size:14px;font-family:Montserrat,sans-serif;transition:background-color 0.2 ease-in"> For Article</a>
+        <a href="./forUrl/" style="width:fit-content; color:black; text-decoration:none;padding-right:12px;padding-left:12px;padding-bottom:7px; padding-top:7px;cursor:pointer;outline:none;background-color:white;border:none;font-size:14px;font-family:Montserrat,sans-serif;transition:background-color 0.2 ease-in"> For URL</a> 
+      </span>
+      <div class="article-div">
+        <form action="" method="POST" class="search-form">
+        
+        </form>
+      </div> -->
+
+     
+    
+     <script src="{% static 'js/main.js'%}"></script>
+    <script>
+      document.onreadystatechange = function () {
+        if (document.readyState !== "complete") {
+          document.querySelector("body").style.visibility = "hidden";
+          document.querySelector("#loader").style.visibility = "visible";
+        } else {
+          document.querySelector("#loader").style.display = "none";
+          document.querySelector("body").style.visibility = "visible";
+        }
+      };
+    </script> 
+  </body>
+</html>

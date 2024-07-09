@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Sign Up Form HTML CSS</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/loginout.css' %}">
+</head>
+<body>
+<div class="bg-img">
+    <div class="content">
+        <header>Sign Up Form</header>
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            <div class="field">
+                <span class="fa fa-user"></span>
+                <input type="text" name="username" required placeholder="Username">
+            </div>
+            <div class="field">
+                <span class="fa fa-envelope"></span>
+                <input type="email" name="email" required placeholder="Email Address">
+            </div>
+            <div class="field">
+                <span class="fa fa-user"></span>
+                <input type="text" name="first_name" required placeholder="First Name">
+            </div>
+            <div class="field">
+                <span class="fa fa-user"></span>
+                <input type="text" name="last_name" required placeholder="Last Name">
+            </div>
+            <div class="field space">
+                <span class="fa fa-lock"></span>
+                <input type="password" name="password1" class="pass-key" required placeholder="Password">
+                <span class="show">SHOW</span>
+            </div>
+            <div class="field space">
+                <span class="fa fa-lock"></span>
+                <input type="password" name="password2" class="pass-key" required placeholder="Confirm Password">
+                <span class="show">SHOW</span>
+            </div>
+            <div class="field">
+                <input type="submit" value="SIGN UP">
+            </div>
+        </form>
+        <div class="login">
+            Already have an account?
+        </div>
+        <div class="links">
+            <div class="instagram">
+                <a href="{% url 'login' %}"><i class="fab fa-instagram"><span>Login Here</span></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const pass_fields = document.querySelectorAll('.pass-key');
+    const showBtns = document.querySelectorAll('.show');
+    showBtns.forEach((showBtn, index) => {
+        showBtn.addEventListener('click', function(){
+            if(pass_fields[index].type === "password"){
+                pass_fields[index].type = "text";
+                showBtn.textContent = "HIDE";
+                showBtn.style.color = "#3498db";
+            } else {
+                pass_fields[index].type = "password";
+                showBtn.textContent = "SHOW";
+                showBtn.style.color = "#222";
+            }
+        });
+    });
+</script>
+</body>
+</html>

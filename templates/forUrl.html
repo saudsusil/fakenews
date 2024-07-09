@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL BASED</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="style3.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("{% static 'images/bg.jpg' %}");
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="loadingGif" style="display: none">
+      <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+    </div>
+    <div id="loader" class="center"></div>
+    
+    <nav>
+      <a href="{% url 'profile' %}"><img src="{% static 'images/na.png' %}"> </a>      
+      <div class="nav-links">
+          
+          
+          <ul>
+               <!-- <li><a href="./index/">HOME</a></li>  -->
+              <!-- <li><a href="./forArticle/">ARTICLE BASED</a></li>
+              <li><a href="./forUrl/">URL BASED</a></li> -->
+              
+          </ul>
+      </div>
+      
+  </nav>
+
+    <div class="text">
+      <h1 > URL Based</h1>
+  </div>
+    <div class="search-box">
+     
+      
+      <div class="article-div">
+        <form action="" method="POST" class="search-form">
+          {% csrf_token %}
+          <textarea
+            class="searchbar"
+            placeholder="Enter your URL link here.."
+            onkeyonkeyup="saveValue(this);"
+            name="url-article"
+          ></textarea>
+          <!-- {% if values == "Blank" %}
+          <h4 class="below_textarea">
+            "The News is <span style="color: green">{{values}}</span>"
+          </h4>
+          {%endif%} -->
+
+          <!-- <input
+            type="text"
+            required
+            placeholder="Enter your text here.."
+            name="article"
+            class="txt_1"
+            onkeyup="saveValue(this);"
+          /> -->
+          <!-- <button type="submit"><i class="fa fa-search" style="font-size:24px"></i></button> -->
+          <button type="submit" class="predict-btn" onclick="showDiv()">
+            <h5>Predict</h5>
+          </button>
+        </form>
+      </div>
+
+      {% block content %}{% endblock content %}
+      <!-- <div class="url-div">
+        <form method="POST" action="">
+          {% csrf_token %}
+          <input
+            type="url"
+            required
+            name="url-article"
+            class="txt_1"
+            size="50"
+            placeholder="Paste your URL here..."
+          />
+          <button type="submit" class="predict-btn" onclick="showDiv()">
+            <h5>Predict URL</h5>
+          </button>
+        </form>
+      </div>
+    </div> -->
+
+    
+    <script src="js/main.js'"></script>
+    <script>
+      document.onreadystatechange = function () {
+        if (document.readyState !== "complete") {
+          document.querySelector("body").style.visibility = "hidden";
+          document.querySelector("#loader").style.visibility = "visible";
+        } else {
+          document.querySelector("#loader").style.display = "none";
+          document.querySelector("body").style.visibility = "visible";
+        }
+      };
+    </script>
+  </body>
+</html>

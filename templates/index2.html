@@ -1,0 +1,15 @@
+-{% extends 'forUrl.html' %} {% block content %} {% if values == 'REAL' %}
+<h4 class="below_textarea" style="color: #ffff;">
+  "The News is <span style="color: green">{{values}}</span>"<br>
+  Based on the features (more frequent keyword,metadata)
+</h4>
+<!-- {% elif values == 'Blank' %}
+<h4 class="below_textarea">
+  "The News is <span style="color: rgb(62, 0, 128)">{{values}}</span>"
+</h4> -->
+{% else %}
+<h4 class="below_textarea" style="color: #ffff;">
+  "The News is <span style="color: red">{{values}}</span>"<br>
+  Based on the features (more frequent keyword,metadata)
+</h4>
+{% endif %} {% endblock content %}
